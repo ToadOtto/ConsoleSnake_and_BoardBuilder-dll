@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Reference Include="BoardBuilder">
-      <HintPath>bin\Debug\net5.0\BoardBuilder.dll</HintPath>
+      <HintPath>..\Libraries\BoardBuilder.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -53,7 +53,7 @@ namespace MYSnake
             Console.SetCursorPosition(0, 0);
         }
 
-        //MAIN LOOP
+        //MAIN LOOP--------------------
         internal void Update()
         {
             DeleteTail();

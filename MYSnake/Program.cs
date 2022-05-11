@@ -19,7 +19,7 @@ namespace MYSnake
             Console.Clear();
 
             //Create a board with a name of the game [SNAKE GAME]
-            GameBoard board = new GameBoard("SNAKE", -2, 4);
+            GameBoard board = new GameBoard("SNAKE GAME", -2, 4);
 
             SnakeBoard.SetBoardTemplate(board);
 

@@ -10,6 +10,7 @@ namespace MYSnake
         internal static int SnakeBoardBorder_bottom { get; set; }
         internal static int SnakeBoardBorder_right { get; set; }
         internal static int SnakeBoardBorder_left { get; set; }
+
         internal static void SetBoardTemplate(GameBoard board)
         {
             _snakeBoard = board;
@@ -23,6 +24,7 @@ namespace MYSnake
 
             SnakeBoardBorder_left = _snakeBoard.Border_left;
         }
+
         internal static void DrawnNewSnakeBoard() => _snakeBoard.DrawBoard();
         internal static void ClearSnakeBoard() => _snakeBoard.ClearBoard();
         internal static void UpdateSnakeStats(int score, int highscore, int tries) => _snakeBoard.UpdateStats(score, highscore, tries);
