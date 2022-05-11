@@ -6,14 +6,11 @@ namespace MYSnake
 {
     internal class Snake
     {
-        private int score;
+        int score;
 
-        private int highscore;
+        int highscore;
 
-        private int tries;
-
-        SnakeBoard snakeboard = new SnakeBoard();
-
+        int tries;
         //Each array in the "snake" List should be seen as a part of the snake's body with two indexes - [0] (x) and [1] (y)
         List<int[]> snake = new List<int[]>();
 
@@ -25,7 +22,7 @@ namespace MYSnake
             LEFT = 2,
             RIGHT = 3
         }
-        private int snake_direction = (int)PossibleDirections.DOWN;
+        int snake_direction = (int)PossibleDirections.DOWN;
 
 
         //CREATE NEW SNAKE-------------
@@ -35,10 +32,11 @@ namespace MYSnake
             snake.Clear();
 
             //Build a new snake which consists of 4 parts and set a starting coordinates for each part
-            snake.Add(new int[] { snakeboard.SnakeBoard_Border_right - 13, snakeboard.SnakeBoard_Border_top + 5 });
-            snake.Add(new int[] { snakeboard.SnakeBoard_Border_right - 13, snakeboard.SnakeBoard_Border_top + 4 });
-            snake.Add(new int[] { snakeboard.SnakeBoard_Border_right - 13, snakeboard.SnakeBoard_Border_top + 3 });
-            snake.Add(new int[] { snakeboard.SnakeBoard_Border_right - 13, snakeboard.SnakeBoard_Border_top + 2 });
+            snake.Add(new int[] { SnakeBoard.SnakeBoardBorder_right - 13, SnakeBoard.SnakeBoardBorder_top + 5 });
+            snake.Add(new int[] { SnakeBoard.SnakeBoardBorder_right - 13, SnakeBoard.SnakeBoardBorder_top + 4 });
+            snake.Add(new int[] { SnakeBoard.SnakeBoardBorder_right - 13, SnakeBoard.SnakeBoardBorder_top + 3 });
+            snake.Add(new int[] { SnakeBoard.SnakeBoardBorder_right - 13, SnakeBoard.SnakeBoardBorder_top + 2 });
+            
             snake_direction = 0;
         }
 
@@ -78,7 +76,7 @@ namespace MYSnake
                 highscore = score > highscore ? score : highscore;
             }
 
-            snakeboard.UpdateStats(score, highscore, tries);
+            SnakeBoard.UpdateSnakeStats(score, highscore, tries);
         }
 
         //SNAKE LOGIC------------------
@@ -137,8 +135,8 @@ namespace MYSnake
 
             while (!possible_position)
             {
-                candy[0] = rng.Next(snakeboard.SnakeBoard_Border_left + 1, snakeboard.SnakeBoard_Border_right - 1);
-                candy[1] = rng.Next(snakeboard.SnakeBoard_Border_top + 1, snakeboard.SnakeBoard_Border_bottom - 1);
+                candy[0] = rng.Next(SnakeBoard.SnakeBoardBorder_left + 1, SnakeBoard.SnakeBoardBorder_right - 1);
+                candy[1] = rng.Next(SnakeBoard.SnakeBoardBorder_top + 1,  SnakeBoard.SnakeBoardBorder_bottom - 1);
 
                 //Check every part of the snake, possible_position will remain true if no overlap of candy and the parts appears.
                 for (int i = snake.Count - 1; i >= 0; i--)
@@ -171,8 +169,8 @@ namespace MYSnake
         }
         internal bool CollidedWithBorder()
         {
-            return (snake[0][0] >= snakeboard.SnakeBoard_Border_right  || snake[0][0] <= snakeboard.SnakeBoard_Border_left ||
-                    snake[0][1] >= snakeboard.SnakeBoard_Border_bottom || snake[0][1] <= snakeboard.SnakeBoard_Border_top);
+            return (snake[0][0] >=  SnakeBoard.SnakeBoardBorder_right  || snake[0][0] <=  SnakeBoard.SnakeBoardBorder_left ||
+                    snake[0][1] >=  SnakeBoard.SnakeBoardBorder_bottom || snake[0][1] <=  SnakeBoard.SnakeBoardBorder_top);
         }
         internal bool CollidedWithSelf()
         {
@@ -244,18 +242,18 @@ namespace MYSnake
             Console.ForegroundColor = ConsoleColor.Red;
             for (int i = 0; i < 2; i++)
             {
-                Console.SetCursorPosition(snakeboard.SnakeBoard_Border_right - 20, snakeboard.SnakeBoard_Border_top + 5);
+                Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
                 Console.Write("                    ");
-                Console.SetCursorPosition(snakeboard.SnakeBoard_Border_right - 20, snakeboard.SnakeBoard_Border_top + 5);
+                Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
                 Console.Write("YOU ARE DEAD");
                 Thread.Sleep(400);
-                Console.SetCursorPosition(snakeboard.SnakeBoard_Border_right - 20, snakeboard.SnakeBoard_Border_top + 5);
+                Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
                 Console.Write("                    ");
-                Console.SetCursorPosition(snakeboard.SnakeBoard_Border_right - 18, snakeboard.SnakeBoard_Border_top + 5);
+                Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 18,  SnakeBoard.SnakeBoardBorder_top + 5);
                 Console.Write("YOU  ARE  DEAD");
                 Thread.Sleep(400);
             }
-            Console.SetCursorPosition(snakeboard.SnakeBoard_Border_right - 18, snakeboard.SnakeBoard_Border_top + 5);
+            Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 18,  SnakeBoard.SnakeBoardBorder_top + 5);
             Console.Write("                  ");
         }
     }

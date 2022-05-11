@@ -1,38 +1,30 @@
-﻿using BoardBuilder;
+﻿using System;
+using BoardBuilder;
 
 namespace MYSnake
 {
     internal class SnakeBoard
     {
-        internal int SnakeBoard_Border_top { get; }
-        internal int SnakeBoard_Border_bottom { get; }
-        internal int SnakeBoard_Border_right { get; }
-        internal int SnakeBoard_Border_left { get; }
-
-        GameBoard gameboard = new GameBoard("SNAKE", 2, -4);
-        public SnakeBoard()
+        static GameBoard _snakeBoard;
+        internal static int SnakeBoardBorder_top { get; set; }
+        internal static int SnakeBoardBorder_bottom { get; set; }
+        internal static int SnakeBoardBorder_right { get; set; }
+        internal static int SnakeBoardBorder_left { get; set; }
+        internal static void SetBoardTemplate(GameBoard board)
         {
+            _snakeBoard = board;
+
             //Defining borders of the Snake Board
-            SnakeBoard_Border_top = gameboard.Border_top;
+            SnakeBoardBorder_top = _snakeBoard.Border_top;
 
-            SnakeBoard_Border_bottom = gameboard.Border_bottom;
+            SnakeBoardBorder_bottom = _snakeBoard.Border_bottom;
 
-            SnakeBoard_Border_right = gameboard.Border_right;
+            SnakeBoardBorder_right = _snakeBoard.Border_right;
 
-            SnakeBoard_Border_left = gameboard.Border_left;
+            SnakeBoardBorder_left = _snakeBoard.Border_left;
         }
-        internal void DrawnNewSnakeBoard()
-        {
-            gameboard.DrawBoard();
-        }
-        internal void ClearSnakeBoard()
-        {
-            gameboard.ClearBoard();
-        }
-
-        internal void UpdateStats(int score, int highscore, int tries)
-        {
-            gameboard.UpdateStats(score, highscore, tries);
-        }
+        internal static void DrawnNewSnakeBoard() => _snakeBoard.DrawBoard();
+        internal static void ClearSnakeBoard() => _snakeBoard.ClearBoard();
+        internal static void UpdateSnakeStats(int score, int highscore, int tries) => _snakeBoard.UpdateStats(score, highscore, tries);
     }
 }

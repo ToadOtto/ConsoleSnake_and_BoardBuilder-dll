@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using BoardBuilder;
 
 namespace MYSnake
 {
@@ -19,8 +20,11 @@ namespace MYSnake
             Console.Clear();
 
             //Draw a board with a name of the game [SNAKE GAME]
-            SnakeBoard gameboard = new SnakeBoard();
-            gameboard.DrawnNewSnakeBoard();
+            GameBoard board = new GameBoard("SNAKE", 2, -4);
+
+            SnakeBoard.SetBoardTemplate(board);
+
+            SnakeBoard.DrawnNewSnakeBoard();
 
             //Create another task for input check so it runs parallel with the Program
             Snake snake = new Snake();
@@ -30,7 +34,7 @@ namespace MYSnake
             do
             {
                 //Reset the game
-                gameboard.ClearSnakeBoard();
+                SnakeBoard.ClearSnakeBoard();
 
                 snake.BuildNewSnake();
                 snake.DrawNewSnake();
