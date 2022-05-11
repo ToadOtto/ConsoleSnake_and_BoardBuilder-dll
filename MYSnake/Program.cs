@@ -7,20 +7,19 @@ namespace MYSnake
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
 
-            //Change default speed dependent on the difficulty selected
-            int defaultspeed = ChooseDifficulty();
+            //Change updateTime dependent on the difficulty selected
+            int updateTime = ChooseDifficulty();
 
-            //Ignore it (Horizontal speed is different because of the columns and rows thing =o)
-            double horizontalspeed = defaultspeed / 1.3; 
+            //Horizontal updateTime is different because of the rows draws faster
+            double horizontalUpdateTime = updateTime / 1.5;
             Console.Clear();
 
-            //Draw a board with a name of the game [SNAKE GAME]
-            GameBoard board = new GameBoard("SNAKE", 2, -4);
+            //Create a board with a name of the game [SNAKE GAME]
+            GameBoard board = new GameBoard("SNAKE", -2, 4);
 
             SnakeBoard.SetBoardTemplate(board);
 
@@ -51,11 +50,11 @@ namespace MYSnake
 
                     if (snake.SnakeMovingHorizontally())
                     {
-                        Thread.Sleep((int)horizontalspeed);
+                        Thread.Sleep((int)horizontalUpdateTime);
                         continue;
                     }
 
-                    Thread.Sleep(defaultspeed);
+                    Thread.Sleep(updateTime);
 
                 } while (!snake.CollidedWithBorder() && !snake.CollidedWithSelf());
 

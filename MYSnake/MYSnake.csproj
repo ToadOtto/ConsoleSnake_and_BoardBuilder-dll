@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -9,6 +9,7 @@
     <Reference Include="BoardBuilder">
       <HintPath>..\..\..\dlls\BoardBuilder.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+      <CopyLocal>True</CopyLocal>
     </Reference>
   </ItemGroup>
 

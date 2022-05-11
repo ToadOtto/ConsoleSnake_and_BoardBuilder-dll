@@ -242,14 +242,14 @@ namespace MYSnake
             Console.ForegroundColor = ConsoleColor.Red;
             for (int i = 0; i < 2; i++)
             {
-                Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
+                Console.SetCursorPosition(SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
                 Console.Write("                    ");
-                Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
+                Console.SetCursorPosition(SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
                 Console.Write("YOU ARE DEAD");
                 Thread.Sleep(400);
-                Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
+                Console.SetCursorPosition(SnakeBoard.SnakeBoardBorder_right - 20,  SnakeBoard.SnakeBoardBorder_top + 5);
                 Console.Write("                    ");
-                Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 18,  SnakeBoard.SnakeBoardBorder_top + 5);
+                Console.SetCursorPosition(SnakeBoard.SnakeBoardBorder_right - 18,  SnakeBoard.SnakeBoardBorder_top + 5);
                 Console.Write("YOU  ARE  DEAD");
                 Thread.Sleep(400);
             }
