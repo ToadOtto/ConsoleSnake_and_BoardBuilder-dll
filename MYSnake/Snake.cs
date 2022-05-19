@@ -50,7 +50,7 @@ namespace MYSnake
                 Console.Write("#");
             }
 
-            Console.SetCursorPosition(0, 0);
+            Console.ResetColor();
         }
 
         //MAIN LOOP--------------------
@@ -75,7 +75,6 @@ namespace MYSnake
                 score++;
                 highscore = score > highscore ? score : highscore;
             }
-
             SnakeBoard.UpdateSnakeStats(score, highscore, tries);
         }
 
@@ -85,7 +84,6 @@ namespace MYSnake
             //Delete the last part of the snake
             Console.SetCursorPosition(snake[snake.Count - 1][0], snake[snake.Count - 1][1]);
             Console.Write(" ");
-            Console.SetCursorPosition(0, 0);
         }
         private void UpdateBodyPos()
         {
@@ -122,7 +120,6 @@ namespace MYSnake
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.SetCursorPosition(snake[0][0], snake[0][1]);
             Console.Write("#");
-            Console.SetCursorPosition(0, 0);
         }
 
         //CREATE NEW APPLE-------------
@@ -253,7 +250,7 @@ namespace MYSnake
                 Console.Write("YOU  ARE  DEAD");
                 Thread.Sleep(400);
             }
-            Console.SetCursorPosition( SnakeBoard.SnakeBoardBorder_right - 18,  SnakeBoard.SnakeBoardBorder_top + 5);
+            Console.SetCursorPosition(SnakeBoard.SnakeBoardBorder_right - 18,  SnakeBoard.SnakeBoardBorder_top + 5);
             Console.Write("                  ");
         }
     }

@@ -19,7 +19,7 @@ namespace MYSnake
             Console.Clear();
 
             //Create a board with a name of the game [SNAKE GAME]
-            GameBoard board = new GameBoard("SNAKE GAME", -2, 4);
+            GameBoard board = new GameBoard("SNAKE GAME", 0,0,true,false);
 
             SnakeBoard.SetBoardTemplate(board);
 
@@ -41,8 +41,6 @@ namespace MYSnake
                 snake.BuildNewApple();
                 snake.DrawNewApple();
 
-                Thread.Sleep(800);
-
                 //Snake updates every [speed] seconds. Loop ends after Colliding and execute OnDeath function
                 do
                 {
@@ -55,7 +53,7 @@ namespace MYSnake
                     }
 
                     Thread.Sleep(updateTime);
-
+                    
                 } while (!snake.CollidedWithBorder() && !snake.CollidedWithSelf());
 
                 snake.OnDeath();
